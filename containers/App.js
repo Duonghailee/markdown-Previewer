@@ -22,7 +22,7 @@ export default class MarkdownEditor extends Component {
     }
 
     getRawMarkup() {
-        const Remarkable = require('remarkable');
+        //const Remarkable = require('remarkable');
         const md = new Remarkable();
         return {
             __html: md.render(this.state.value)

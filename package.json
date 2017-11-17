@@ -4,12 +4,21 @@
   "description": "A markdown previewer app",
   "main": "index.js",
   "dependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^5.0.0",
+    "prettier": "^1.8.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "remarkable": "^1.7.1",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },
+   "lint-staged": {
+      "src/**/*.{js,jsx,json,css}": [
+         "prettier --single-quote --write",
+         "git add"
+       ]
+     },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -36,10 +45,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.dev.config.js"
+    "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.dev.config.js",
+    "precommit": "lint-staged",
+    "build": "react-scripts build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Duonghailee/markdown-Previewer.git"
-   }
+  }
 }
